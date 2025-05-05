@@ -1,12 +1,54 @@
-# React + Vite
+# E-Commerce Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive e-commerce web application featuring user login, product listing with filters and sorting, detailed product view, and a shopping cart.
 
-Currently, two official plugins are available:
+# Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Login Page
+- Basic login functionality.
+- Email and password fields.
+- User authentication (mocked api).
 
-## Expanding the ESLint configuration
+# Product List Page
+- Displays a list of available products.
+- Each product shows:
+  - Thumbnail image
+  - Title
+  - Price
+  - Short description
+- **Filters:**
+  - Sort by price (Low to High / High to Low)
+  - Sort by rating
+  
+# Product Detail Page
+- Detailed view of a selected product including:
+  - Product name
+  - Description
+  - Price
+  - Size options
+  - Color options
+  - Rating
+  - "Add to Cart" button
+  - Quantity increment/decrement controls
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Shopping Cart
+- Shows all items added by the user.
+- Allows increasing or decreasing the quantity of each item.
+- Automatically updates the price based on quantity.
+- Remove items from the cart.
+- Displays:
+  - Product image and title
+  - Selected size/color 
+  - Quantity controls
+  - total price
+
+# Tech Stack
+
+- **Frontend:** React 
+- **State Management:** Redux 
+- **Styling:** TailwindCSS 
+
+# setup Instructions
+
+- First of all download all dependencies by "npm install".
+- we can run the project by "npm run dev".
