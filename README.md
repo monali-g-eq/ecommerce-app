@@ -52,3 +52,22 @@ A simple and responsive e-commerce web application featuring user login, product
 
 - First of all download all dependencies by "npm install".
 - we can run the project by "npm run dev".
+
+
+# Incomplete Features
+*Responsive Design
+The app is currently not fully responsive. Needs optimization for tablets and mobile devices.
+
+*Filters (UI/UX Incomplete)
+
+Color filter — Not implemented
+Size filter (e.g., S, M, L, XL) — Not implemented
+Dress type/category — Not implemented
+Price range slider/filter — Not implemented
+
+*Review — Not implemented 
+
+*Footer Section — Not implemented 
+
+*Product Review System
+Ratings are shown, but review submission and display are not implemented yet.
