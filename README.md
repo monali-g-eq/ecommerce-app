@@ -7,6 +7,35 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+Used tools and technology
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+`React`
+`Redux`
+`Redux-toolkit`
+`React-router-dom`
+`Bootstrap`
+`Axios`
+
+Implemented functionalites
+
+`Login user.`
+`Product listing and pagination.`
+`Sortring product list as per product price`
+`Product detail page for show all detail of product.`
+`Add to cart and Remove from cart.`
+`Cart product quantity increment and decrement, and as per product quantity and price toatal bill price update.`
+
+User login data
+
+`email : user@example.com`
+`password : 123456`
+
+Used API for fetch product
+
+`https://dummyjson.com/products`
+
+Remaining functionalites
+
+1. Filter products.
+2. Sorting product as per price.
+3. Responsive design.
