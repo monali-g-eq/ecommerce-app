@@ -17,6 +17,7 @@ Key Features :
 
 -> Simple form-based login.
 -> Make authentication by add conditions.
+-> Login user Email : user@gmail.com , Password : 12345678; 
 
 2. Product Listing Page
 
