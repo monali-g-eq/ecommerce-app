@@ -11,8 +11,9 @@ Great!  **Here using chatGPT i am showing what i have completed and what i have 
 | **Product Listing Page**              | Fetched and displayed products with thumbnail, title, and price        |
 |                                       | Implemented navigation to Product Details page on item click           |
 |                                       | Created and integrated `cartSlice` in Redux to manage cart state       |
-|                                       | Displayed dummy reviews/ratings                                 |
+|                                       | Displayed dummy reviews/ratings                                        |
 | **Product Details Page**              | Built UI to show product title, description, images, rating, and price |
+| **Header and Footer Page**           | Create Header and Footer                                               |
 | **Cart Functionality (cartSlice.js)** | Implemented core logic in Redux for:                                   |
 
 * `addToCart`

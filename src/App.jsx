@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { useDispatch } from "react-redux";
-import { Footer, Header } from "./components/index"
+import Footer from "./components/Footer" 
 import { Outlet } from "react-router-dom";
 import Header1 from "./components/Header1";
 function App() {
