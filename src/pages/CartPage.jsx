@@ -1,41 +1,7 @@
-// src/pages/CartPage.jsx
-// import React from 'react';
-// import { useCart } from '../context/CartContext';
-
-// const CartPage = () => {
-//   const { cartItems } = useCart();
-
-//   return (
-//     <div className="max-w-5xl mx-auto py-10 px-4">
-//       <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
-//       {cartItems.length === 0 ? (
-//         <p className="text-gray-600">Your cart is empty.</p>
-//       ) : (
-//         <div className="space-y-4">
-//           {cartItems.map((item, index) => (
-//             <div key={index} className="flex items-center border rounded-lg p-4 shadow">
-//               <img src={item.image} alt={item.name} className="w-28 h-28 object-cover rounded-lg" />
-//               <div className="ml-6 flex-1">
-//                 <h2 className="text-lg font-semibold">{item.name}</h2>
-//                 <p className="text-sm text-gray-500">
-//                   Size: {item.size} | Color: <span className="inline-block w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></span>
-//                 </p>
-//                 <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
-//               </div>
-//               <div className="text-lg font-bold">${item.price * item.quantity}</div>
-//             </div>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default CartPage;
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import { FiTrash2 } from 'react-icons/fi'; // Trash icon for delete
-import { FiPlus, FiMinus } from 'react-icons/fi'; // Plus and Minus icons for quantity change
+import { FiTrash2 } from 'react-icons/fi'; 
+import { FiPlus, FiMinus } from 'react-icons/fi'; 
 
 const CartPage = () => {
   const { cartItems, removeItem, increaseQuantity, decreaseQuantity } = useCart();
@@ -126,7 +92,7 @@ const CartPage = () => {
                       border: 'none',
                       cursor: 'pointer',
                     }}
-                    onClick={() => decreaseQuantity(item.id)} // Decrease quantity
+                    onClick={() => decreaseQuantity(item.id)} 
                   >
                     <FiMinus />
                   </button>
@@ -139,16 +105,15 @@ const CartPage = () => {
                       border: 'none',
                       cursor: 'pointer',
                     }}
-                    onClick={() => increaseQuantity(item.id)} // Increase quantity
+                    onClick={() => increaseQuantity(item.id)} 
                   >
                     <FiPlus />
                   </button>
                 </div>
               </div>
               <div style={priceStyle}>${item.price * item.quantity}</div>
-              {/* Delete button */}
               <button
-                onClick={() => removeItem(item.id)} // Remove item from cart
+                onClick={() => removeItem(item.id)} 
                 style={{
                   backgroundColor: 'transparent',
                   border: 'none',
