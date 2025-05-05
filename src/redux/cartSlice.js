@@ -20,16 +20,23 @@ const cartSlice = createSlice({
     setError: (state) => {
       state.status = "failed";
     },
-    addTocart: (state, action) => {
-      const existingItem = state.items.find(
-        (item) => item.id === action.payload
+    addToCart: (state, action) => {
+      const { product, quantity } = action.payload;
+      const existingItem = state.selectedItems.find(
+        (item) => item.id === product.id
       );
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        state.selectedItems.push({ ...action.payload, quantity: 1 });
+
+      if(existingItem){
+        existingItem.quantity = quantity
+      }else{
+        state.selectedItems.push({...product, quantity})
       }
-    },
+    
+      state.totalQuantity += quantity
+      state.totalPrice += product.price * quantity;
+    
+    }
+    ,
     removeFromCart: (state, action) => {
       const itemToRemove = state.items.find(
         (item) => item.id === action.payload.id
@@ -42,16 +49,17 @@ const cartSlice = createSlice({
         );
       }
     },
-    increaseQty: (state, action) => {
-      const item = state.items.find((item) => item.id === action.payload);
-      if (item) {
-        item.quantity += 1;
-        state.totalQuantity += 1;
-        state.totalPrice += item.price;
-      }
-    },
+    
   },
 });
 
-export const { setProducts, setLoading, setError } = cartSlice.actions;
+export const {
+  setProducts,
+  setLoading,
+  setError,
+  addToCart,
+  removeFromCart,
+  increaseQty,
+  decreaseQty,
+} = cartSlice.actions;
 export default cartSlice.reducer;

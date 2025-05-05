@@ -33,8 +33,8 @@ Great!  **Here using chatGPT i am showing what i have completed and what i have 
 | **Product Listing Page** | Add "Add to Cart" button with quantity selector, filter by category, and sorting functionality |
 |                          | Improve UI styling to match existing theme                                                     |
 | **Product Details Page** | Add "Add to Cart" functionality with quantity selector                                         |
-| **Cart Page**            | Build Cart Page UI and display cart items (title, price, quantity, total)                                   |
-|                          | Implement redux functionality in cart page to increase/decrease quantity, remove item in cart page.                                   |
+| **Cart Page**            | Build Cart Page UI and display cart items (title, price, quantity, total)                      |
+|                          | Implement redux functionality in cart page to increase/decrease quantity, remove item in cart page.|
 
                           
 

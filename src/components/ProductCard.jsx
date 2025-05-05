@@ -22,16 +22,16 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="shadow-lg p-3 flex flex-col justify-end items-start rounded-2xl">
-      <img loading="lazy" src={product.thumbnail} alt="" className="w-full h-60 object-contain" />
-      <h3 className="font-semibold">
+    <div className="flex flex-col justify-end items-start">
+      <img loading="lazy" src={product.images['0']} alt="" className="w-full h-full m-2 bg-[#F0EEED] rounded-3xl" />
+      <h3 className="font-semibold text-2xl mt-2">
         {product.title}
       </h3>
       {/* <div className="flex items-start"> */}
-        <span>
+        <span className="m-2 ml-0">
           {" "}
           <StarRating rating={product.rating} />{" "}
-        <span>({product.rating})</span>
+        <span className="text-2xl">({product.rating})</span>
         </span>
       {/* </div> */}
 

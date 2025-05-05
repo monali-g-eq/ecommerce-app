@@ -33,7 +33,7 @@ const Products = () => {
   console.log("Products", products);
 
   return (
-    <div className='flex'>
+    <div className='flex container mx-auto px-4 sm:px-6 lg:px-8'>
 
       {/* // filter ahiya aavse */}
       <div className='w-1/4 p-4'>
@@ -43,7 +43,7 @@ const Products = () => {
       {/* // rproduct card ahiya aavse */}
       <div className="w-3/4 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {products.map((product) => (
-          <Link key={product.id} to={`/product/${product.title}/${product.meta.barcode}`}>
+          <Link key={product.id} to={`/product/${product.id}/`}>
             <ProductCard  product={product} />
           </Link>
         ))}
