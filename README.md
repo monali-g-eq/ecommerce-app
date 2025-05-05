@@ -1,12 +1,40 @@
-# React + Vite
+Great!  **Here using chatGPT i am showing what i have completed and what i have Pendig tasks** based on my given tasks:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+### ✅ Completed Tasks
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| **Page**                              | **Completed Task Description**                                         |
+| ------------------------------------- | ---------------------------------------------------------------------- |
+| **Login Page**                        | Created UI with email and password fields with required validation     |
+|                                       | Used previous LinkedIn-style login design                              |
+| **Product Listing Page**              | Fetched and displayed products with thumbnail, title, and price        |
+|                                       | Implemented navigation to Product Details page on item click           |
+|                                       | Created and integrated `cartSlice` in Redux to manage cart state       |
+|                                       | Displayed dummy reviews/ratings                                 |
+| **Product Details Page**              | Built UI to show product title, description, images, rating, and price |
+| **Cart Functionality (cartSlice.js)** | Implemented core logic in Redux for:                                   |
 
-## Expanding the ESLint configuration
+* `addToCart`
+* `removeFromCart`
+* `increaseQty`
+* Tracked total quantity and total price                                            |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### ❌ Incomplete / Pending Tasks
+
+| **Page**                 | **Pending Task Description**                                                                   |
+| ------------------------ | ---------------------------------------------------------------------------------------------- |
+| **Login Page**           | Handle login API: `POST https://dummyjson.com/auth/login`                                      
+|                                                             |
+|                          | Redirect to Product Listing page on successful login                                           |
+| **Product Listing Page** | Add "Add to Cart" button with quantity selector, filter by category, and sorting functionality |
+|                          | Improve UI styling to match existing theme                                                     |
+| **Product Details Page** | Add "Add to Cart" functionality with quantity selector                                         |
+| **Cart Page**            | Build Cart Page UI and display cart items (title, price, quantity, total)                                   |
+|                          | Implement redux functionality in cart page to increase/decrease quantity, remove item in cart page.                                   |
+
+                          
+
+---
