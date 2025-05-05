@@ -10,3 +10,43 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+Key Features : 
+1. Login Page
+
+-> Simple form-based login.
+-> Make authentication by add conditions.
+-> Remaining  : designing section
+
+2. Product Listing Page
+
+-> Displays a list of products.
+-> Sorted elements base on price in ascending order.
+-> On item click → navigate to Product Details Page
+-> "Add to Cart" functionality
+-> use redux for state management
+-> Remaining : filter functionality , designing section
+
+3. Product Details Page
+-> Shows detailed information for a selected product.
+-> Option to add the product to the cart.
+-> Show RatingStars.
+-> Remaining  : designing section.
+
+4. Cart Section
+-> Uses Redux for cart state.
+-> Users can: Increment / Decrement product quantity.
+-> Remove products.
+-> Remaining  : designing section.
+
+5.  Technologies Used
+-> ReactJs 
+-> Redux Toolkit
+-> React-Router-Dom
+-> Axios package for API request
+-> Bootstrap 
+
+6. Install dependencies & Running the App
+-> npm install
+-> To start the development server, run: npm run dev
