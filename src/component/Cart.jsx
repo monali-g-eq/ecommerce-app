@@ -23,7 +23,7 @@ const Cart = () => {
   }, 0);
 
   const discount = subtotal * 0.2;
-  const delivery = 15;
+  const delivery = 3;
   const total = subtotal - discount + delivery;
 
   return (
@@ -43,7 +43,7 @@ const Cart = () => {
                   >
                     <div className="d-flex align-items-center">
                       <img
-                        src={item.image}
+                        src={item.thumbnail}
                         alt={item.name}
                         className="img-fluid rounded me-3"
                         width="80"

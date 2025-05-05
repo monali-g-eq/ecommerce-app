@@ -9,26 +9,26 @@ Currently, two official plugins are available:
 
 Used tools and technology
 
-`React`
-`Redux`
-`Redux-toolkit`
-`React-router-dom`
-`Bootstrap`
-`Axios`
+1. React
+2. Redux
+3. Redux-toolkit
+4. React-router-dom
+5. Bootstrap
+6. Axios
 
 Implemented functionalites
 
-`Login user.`
-`Product listing and pagination.`
-`Sortring product list as per product price`
-`Product detail page for show all detail of product.`
-`Add to cart and Remove from cart.`
-`Cart product quantity increment and decrement, and as per product quantity and price toatal bill price update.`
+1. Login user.
+2. Product listing and pagination.
+3. Sortring product list as per product price.
+4. Product detail page for show all detail of product.
+5. Add to cart and Remove from cart.
+6. Cart product quantity increment and decrement, and as per product quantity and price toatal bill price update.
 
 User login data
 
-`email : user@example.com`
-`password : 123456`
+--> email : user@example.com
+--> password : 123456
 
 Used API for fetch product
 
