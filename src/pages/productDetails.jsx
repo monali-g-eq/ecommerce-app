@@ -41,7 +41,7 @@ const ProductDetails = () => {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body">
-                      <Link to="/">
+                      <Link to="/product">
                         {" "}
                         <h5 className="card-title">{products.title}</h5>
                       </Link>
