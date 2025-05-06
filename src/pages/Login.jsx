@@ -1,4 +1,4 @@
-
+import React from "react";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -79,7 +79,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 rounded-md transition duration-300 ${loading ? 'bg-gray-400' : 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300'}`}
+            className={`w-full py-3 rounded-md transition duration-300 ${loading ? 'bg-gray-400' : 'bg-blue-600 text-black hover:bg-blue-700 focus:ring-4 focus:ring-blue-300'}`}
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>

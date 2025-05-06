@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -119,7 +120,7 @@ export default function Products() {
     e.stopPropagation(); 
     handleAddToCart(product); 
   }}
-  className="bg-blue-600 text-white w-full py-2 rounded-md hover:bg-blue-700 transition"
+  className="bg-blue-600 text-black w-full py-2 rounded-md hover:bg-blue-700 transition"
 >
   Add to Cart
 </button>

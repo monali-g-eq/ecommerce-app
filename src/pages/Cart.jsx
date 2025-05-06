@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromCart, updateQuantity } from "../redux/cartSlice"; 
 import { useNavigate } from 'react-router-dom';
@@ -90,7 +91,7 @@ export default function CartPage() {
             <h2 className="text-2xl font-bold">Total: ${getTotalPrice()}</h2>
             <button
               onClick={() => alert('Proceeding to checkout...')} // Replace with actual checkout logic
-              className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700 transition"
+              className="bg-blue-600 text-black py-2 px-6 rounded-md hover:bg-blue-700 transition"
             >
               Checkout
             </button>

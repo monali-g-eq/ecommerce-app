@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -119,7 +120,7 @@ export default function ProductDetailsPage() {
             />
             <button
               onClick={handleAddToCart}
-              className="bg-blue-600 text-white ml-4 py-2 px-6 rounded-md hover:bg-blue-700 transition"
+              className="bg-blue-600 text-black ml-4 py-2 px-6 rounded-md hover:bg-blue-700 transition"
             >
               Add to Cart
             </button>
