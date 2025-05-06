@@ -32,7 +32,7 @@ function ImageGallery({ images }) {
                         <img key={index}
                             src={img}
                             onClick={() => handleImageChange(img)}
-                            className={`bg-[#F0EEED] object-cover  w-30 h-30 lg:h-30 lg:w-30  cursor-pointer border-1  rounded-3xl ${selectedImages === img ? 'border-black' : 'border-gray-300'}`}
+                            className={`bg-[#F0EEED] object-cover  w-20 h-20 lg:h-40 lg:w-40  cursor-pointer border-1  rounded-3xl ${selectedImages === img ? 'border-black' : 'border-gray-300'}`}
                         />
                     ))
                 }
@@ -40,7 +40,7 @@ function ImageGallery({ images }) {
 
 
             <div className="flex justify-center items-center w-full p-0 m-0">
-                <img src={selectedImages} alt="selected" className={`w-full max-w-lg h-auto rounded-3xl bg-[#F0EEED] transition-opacity duration-700 ease-linear ${isFading ? 'opacity-40' : 'opacity-100'
+                <img src={selectedImages} alt="selected" className={`w-full max-w-lg h-auto rounded-3xl bg-[#F0EEED] transition-opacity duration-700 ease-in-out ${isFading ? 'opacity-40' : 'opacity-100'
                     }`} />
             </div>
         </div>

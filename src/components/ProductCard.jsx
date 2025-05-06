@@ -28,20 +28,20 @@ export default function ProductCard({ product }) {
         {product.title}
       </h3>
       {/* <div className="flex items-start"> */}
-        <span className="m-2 ml-0">
-          {" "}
-          <StarRating rating={product.rating} />{" "}
+      <span className="m-2 ml-0">
+        {" "}
+        <StarRating rating={product.rating} />{" "}
         <span className="text-2xl">({product.rating})</span>
-        </span>
+      </span>
       {/* </div> */}
 
       <span className="font-extrabold text-2xl">
         ${Math.ceil(product.price)}&nbsp;
-      <span className="text-gray-500 line-through font-bold pl-1">
-        ${Math.ceil(product.discountPercentage)}
+        <span className="text-gray-500 line-through font-bold pl-1">
+          ${Math.ceil(product.discountPercentage)}
+        </span>
       </span>
-      </span>
- 
+
     </div>
 
 

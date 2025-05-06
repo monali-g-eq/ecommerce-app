@@ -58,7 +58,7 @@ export default function Header1() {
                 {/* Desktop Navigation */}
                 <div className="hidden sm:flex space-x-6 items-center">
                     <NavLink
-                        to="/shop"
+                        to="/maintenance"
                         className={({ isActive }) =>
                             `text-lg font-medium ${isActive ? "text-black" : "text-gray-600 hover:text-black"
                             }`
@@ -67,7 +67,7 @@ export default function Header1() {
                         Shop
                     </NavLink>
                     <NavLink
-                        to="/sale"
+                        to="/maintenance"
                         className={({ isActive }) =>
                             `text-lg font-medium ${isActive ? "text-black" : "text-gray-600 hover:text-black"
                             }`
@@ -76,7 +76,7 @@ export default function Header1() {
                         On Sale
                     </NavLink>
                     <NavLink
-                        to="/new-arrivals"
+                        to="/maintenance"
                         className={({ isActive }) =>
                             `text-lg font-medium ${isActive ? "text-black" : "text-gray-600 hover:text-black"
                             }`
@@ -85,13 +85,13 @@ export default function Header1() {
                         New Arrivals
                     </NavLink>
                     <NavLink
-                        to="/brands"
+                        to="/login"
                         className={({ isActive }) =>
                             `text-lg font-medium ${isActive ? "text-black" : "text-gray-600 hover:text-black"
                             }`
                         }
                     >
-                        Brands
+                        Sign in
                     </NavLink>
                 </div>
 
@@ -108,22 +108,9 @@ export default function Header1() {
                 {/* Icons */}
                 <div className="flex items-center space-x-4">
                     <button className="text-gray-600 hover:text-black">
-                        {/* <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M15 17h5l-1.405-1.405M19 13a7 7 0 11-14 0 7 7 0 0114 0z"
-                            />
-                        </svg> */}
 
                         <label htmlFor="serachBar">
+                            {/* search bar */}
                             <svg
                                 fill="#000000"
                                 className="h-6 w-6"
@@ -138,52 +125,26 @@ export default function Header1() {
                     <button className="text-gray-600 hover:text-black">
 
                         {/* cart icon */}
-                        {/* <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M3 3h18M3 9h18M3 15h18M3 21h18"
-                            />
-                        </svg> */}
 
-                        <svg
-                            fill="#000000"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 52 52"
-                            className="h-6 w-6"
-                        >
-                            <g>
-                                <path d="M20.1,26H44c0.7,0,1.4-0.5,1.5-1.2l4.4-15.4c0.3-1.1-0.5-2-1.5-2H11.5l-0.6-2.3c-0.3-1.1-1.3-1.8-2.3-1.8 H4.6c-1.3,0-2.5,1-2.6,2.3C1.9,7,3.1,8.2,4.4,8.2h2.3l7.6,25.7c0.3,1.1,1.2,1.8,2.3,1.8h28.2c1.3,0,2.5-1,2.6-2.3 c0.1-1.4-1.1-2.6-2.4-2.6H20.2c-1.1,0-2-0.7-2.3-1.7v-0.1C17.4,27.5,18.6,26,20.1,26z" />
-                                <circle cx="20.6" cy="44.6" r="4" />
-                                <circle cx="40.1" cy="44.6" r="4" />
-                            </g>
-                        </svg>
-
+                        <Link to='/my-cart'>
+                            <svg
+                                fill="#000000"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 52 52"
+                                className="h-6 w-6"
+                            >
+                                <g>
+                                    <path d="M20.1,26H44c0.7,0,1.4-0.5,1.5-1.2l4.4-15.4c0.3-1.1-0.5-2-1.5-2H11.5l-0.6-2.3c-0.3-1.1-1.3-1.8-2.3-1.8 H4.6c-1.3,0-2.5,1-2.6,2.3C1.9,7,3.1,8.2,4.4,8.2h2.3l7.6,25.7c0.3,1.1,1.2,1.8,2.3,1.8h28.2c1.3,0,2.5-1,2.6-2.3 c0.1-1.4-1.1-2.6-2.4-2.6H20.2c-1.1,0-2-0.7-2.3-1.7v-0.1C17.4,27.5,18.6,26,20.1,26z" />
+                                    <circle cx="20.6" cy="44.6" r="4" />
+                                    <circle cx="40.1" cy="44.6" r="4" />
+                                </g>
+                            </svg>
+                        </Link>
 
 
                     </button>
                     <button className="text-gray-600 hover:text-black" onClick={handleDropDownProfile}>
-                        {/* <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M3 3h18M3 9h18M3 15h18M3 21h18"
-                            />
-                        </svg> */}
+
 
                         {/* user icon */}
 

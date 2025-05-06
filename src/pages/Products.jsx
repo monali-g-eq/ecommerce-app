@@ -28,7 +28,7 @@ const Products = () => {
     fetchProducts();
   }, [dispatch]);
 
-  if (status === 'loading') return <p style={{height: '100vh', textAlign: 'center', width: '100%'}}>Loading...</p>;
+  if (status === 'loading') return <p style={{ height: '100vh', textAlign: 'center', width: '100%' }}>Loading...</p>;
   if (status === 'failed') return <p>Failed to load products.</p>;
   console.log("Products", products);
 
@@ -44,7 +44,7 @@ const Products = () => {
       <div className="w-3/4 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {products.map((product) => (
           <Link key={product.id} to={`/product/${product.id}/`}>
-            <ProductCard  product={product} />
+            <ProductCard product={product} />
           </Link>
         ))}
       </div>
