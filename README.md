@@ -1,12 +1,27 @@
-# React + Vite
+ ## Ecommerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive eCommerce web application built with React and Redux Toolkit, designed to simulate core features of a real online shopping platform.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Login Page** — Authenticate users using Username and password 
+- **Product Listing Page** — Browse a list of products with images, prices, titles and Sort by price (asc/desc), and rating
+- **Product Detail Page** — View detailed information for each product with Product name, Description, Price, Rating, "Add to Cart" button, Quantity increment/decrement controls 
+- **Cart Page** — Add, remove, and update product quantities with Automatically updates the price based on quantity.
 
-## Expanding the ESLint configuration
+##  Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** — Frontend
+- **Redux Toolkit** — State management 
+- **Tailwind CSS** —  UI styling
+- **DummyJSON API** — Mock data for login and products 
+
+## incomplete work 
+
+
+*Responsive Design The app is currently not responsive. 
+
+Color filter — Not implemented
+Size filter - — Not implemented 
+
+UI/UX INCOMPLETED 
