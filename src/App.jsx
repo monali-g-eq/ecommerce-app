@@ -1,35 +1,93 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 
-function App() {
-  const [count, setCount] = useState(0)
 
+// import Navbar from './Component/Navbar';
+// import Products from './pages/Products';
+// import ProductDetails from './pages/ProductDetails';
+// import Cart from './pages/Cart';
+// import Login from "./pages/Login";
+
+// // Optional Protected Route (if needed later)
+// const ProtectedRoute = ({ children }) => {
+//   const user = true; // Replace with actual auth logic
+//   return user ? children : <Navigate to="/login" />;
+// };
+
+// function Layout() {
+//   return (
+//     <div className="flex flex-col min-h-screen bg-[#f3f4f6]">
+//       <Navbar />
+//       <div className="p-4 2xl:px-10 flex-1 overflow-auto">
+//         <Outlet />
+//       </div>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <main className="min-w-fit min-h-screen">
+//       <Routes>
+//         <Route path="/login" element={<Login />} />
+
+//         {/* Main Layout for other pages */}
+//         <Route element={<Layout />}>
+//           <Route index path="/" element={<Navigate to="/products" />} />
+//           <Route path="/products" element={<Products />} />
+//           <Route path="/products/:id" element={<ProductDetails />} />
+//           <Route path="/cart" element={<Cart />} />
+//         </Route>
+//       </Routes>
+      
+//     </main>
+//   );
+// }
+
+// export default App;
+
+
+
+
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import Navbar from './Component/Navbar';
+import Products from './pages/Products';
+import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
+import Login from "./pages/Login";
+
+// Optional Protected Route (if needed later)
+const ProtectedRoute = ({ children }) => {
+  const user = true; // Replace with actual auth logic
+  return user ? children : <Navigate to="/login" />;
+};
+
+function Layout() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex flex-col min-h-screen bg-[#f3f4f6]">
+      <Navbar />
+      <div className="p-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 max-w-screen-xl mx-auto flex-1 overflow-auto">
+        <Outlet />
       </div>
-      <h1 className="text-3xl font-bold underline">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <main className="min-w-fit min-h-screen">
+      <Routes>
+        <Route path="/login" element={<Login />} />
+
+        {/* Main Layout for other pages */}
+        <Route element={<Layout />}>
+          <Route index path="/" element={<Navigate to="/products" />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route>
+      </Routes>
+    </main>
+  );
+}
+
+export default App;
