@@ -44,10 +44,19 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-200 px-4 py-6">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-blue-200 px-4 py-6">
+
+      {/* Welcome Heading */}
+      <h1 className="text-4xl font-bold text-blue-700 mb-6 text-center">
+        Welcome to <span className="text-orange-500">eShop</span>
+      </h1>
+
+      {/* Login Card */}
       <div className="w-full max-w-md bg-white rounded-3xl shadow-lg p-8 space-y-8 border border-gray-300">
-        <h2 className="text-3xl font-semibold text-center text-blue-600">Login to Your Account</h2>
-  
+        <h2 className="text-3xl font-semibold text-center text-blue-600">
+          Login to Your Account
+        </h2>
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Username Field */}
           <div>
@@ -57,9 +66,11 @@ export default function Login() {
               placeholder="e.g., kminchelle"
               className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ${errors.username ? 'border-red-500' : 'border-gray-300'}`}
             />
-            {errors.username && <p className="text-red-500 text-sm mt-2">{errors.username.message}</p>}
+            {errors.username && (
+              <p className="text-red-500 text-sm mt-2">{errors.username.message}</p>
+            )}
           </div>
-  
+
           {/* Password Field */}
           <div>
             <label className="block text-gray-700 font-medium">Password</label>
@@ -69,28 +80,34 @@ export default function Login() {
               placeholder="Your password"
               className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
             />
-            {errors.password && <p className="text-red-500 text-sm mt-2">{errors.password.message}</p>}
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-2">{errors.password.message}</p>
+            )}
           </div>
-  
+
           {/* API Error Message */}
-          {apiError && <p className="text-red-600 text-sm text-center">{apiError}</p>}
-  
+          {apiError && (
+            <p className="text-red-600 text-sm text-center">{apiError}</p>
+          )}
+
           {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 rounded-md transition duration-300 ${loading ? 'bg-gray-400' : 'bg-blue-600 text-black hover:bg-blue-700 focus:ring-4 focus:ring-blue-300'}`}
+            className={`w-full py-3 rounded-md transition duration-300 ${loading
+                ? 'bg-gray-600'
+                : 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300'
+              }`}
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
-  
-        
       </div>
     </div>
   );
-  
-  
+
+
+
 }
 
 

@@ -11,15 +11,15 @@ export default function Products() {
   const [sortOption, setSortOption] = useState('');
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
     alert(`Added ${product.title} to cart.`);
   };
-  
 
-  
+
+
   useEffect(() => {
     const url =
       selectedCategory === 'all'
@@ -39,7 +39,7 @@ export default function Products() {
       });
   }, [selectedCategory]);
 
-  
+
   useEffect(() => {
     fetch('https://dummyjson.com/products/categories')
       .then((res) => res.json())
@@ -47,7 +47,7 @@ export default function Products() {
       .catch((error) => console.error('Error fetching categories:', error));
   }, []);
 
- 
+
   const sortProducts = (items) => {
     switch (sortOption) {
       case 'price-asc':
@@ -116,14 +116,14 @@ export default function Products() {
               <p className="text-blue-600 font-semibold mb-1">${product.price}</p>
               <p className="text-yellow-500 text-sm mb-3">Rating: {product.rating}</p>
               <button
-  onClick={(e) => {
-    e.stopPropagation(); 
-    handleAddToCart(product); 
-  }}
-  className="bg-blue-600 text-black w-full py-2 rounded-md hover:bg-blue-700 transition"
->
-  Add to Cart
-</button>
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleAddToCart(product);
+                }}
+                className="bg-gray-200 text-black w-full py-2 rounded-md hover:bg-gray-400 transition"
+              >
+                Add to Cart
+              </button>
 
             </div>
           ))}
