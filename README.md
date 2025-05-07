@@ -15,11 +15,9 @@ A simple and responsive e-commerce web application featuring user login, product
   - Thumbnail image
   - Title
   - Price
-  - Short description
-- **Filters:**
-  - Sort by price (Low to High / High to Low)
-  - Sort by rating
-  
+  - Ratings
+  - Filters
+
 # Product Detail Page
 - Detailed view of a selected product including:
   - Product name
@@ -30,6 +28,12 @@ A simple and responsive e-commerce web application featuring user login, product
   - Rating
   - "Add to Cart" button
   - Quantity increment/decrement controls
+  - Product details
+  - Product reviews and rating
+  - FAQs
+  - Product specifications
+  - features
+  - suggestion related you might also like
 
 # Shopping Cart
 - Shows all items added by the user.
@@ -41,12 +45,14 @@ A simple and responsive e-commerce web application featuring user login, product
   - Selected size/color 
   - Quantity controls
   - total price
+  - "Checkout" button
+  - "Discount"
 
 # Tech Stack
 
 - **Frontend:** React 
 - **State Management:** Redux 
-- **Styling:** TailwindCSS 
+- **Styling:** TailwindCSS
 
 # setup Instructions
 
@@ -56,18 +62,5 @@ A simple and responsive e-commerce web application featuring user login, product
 
 # Incomplete Features
 *Responsive Design
-The app is currently not fully responsive. Needs optimization for tablets and mobile devices.
+The app is currently not fully responsive. 
 
-*Filters (UI/UX Incomplete)
-
-Color filter — Not implemented
-Size filter (e.g., S, M, L, XL) — Not implemented
-Dress type/category — Not implemented
-Price range slider/filter — Not implemented
-
-*Review — Not implemented 
-
-*Footer Section — Not implemented 
-
-*Product Review System
-Ratings are shown, but review submission and display are not implemented yet.
