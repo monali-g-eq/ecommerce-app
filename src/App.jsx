@@ -5,6 +5,7 @@ import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Login from "./pages/Login";
+import Footer from './Component/Footer';
 import './App.css'
 
 // Optional Protected Route (if needed later)
@@ -17,9 +18,10 @@ function Layout() {
   return (
     <div className="flex flex-col min-h-screen bg-[#f3f4f6]">
       <Navbar />
-      <div className="p-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 max-w-screen-xl mx-auto flex-1 overflow-auto">
+      <div className="pt-16 p-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 max-w-screen-xl mx-auto flex-1 overflow-auto">
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 }
@@ -30,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
 
-        {/* Main Layout for other pages */}
+        {/* Main Layout for all other pages */}
         <Route element={<Layout />}>
           <Route index path="/" element={<Navigate to="/products" />} />
           <Route path="/products" element={<Products />} />
@@ -41,5 +43,6 @@ function App() {
     </main>
   );
 }
+
 
 export default App;
