@@ -9,14 +9,13 @@ const Product = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.product);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortOption, setSortOption] = useState("price-asc");
   const itemsPerPage = 9;
 
   const fetchProducts = async () => {
     try {
       const res = await axios.get("https://dummyjson.com/products?limit=100");
-      const data = res.data.products;
-      const sortedProducts = data.sort((a, b) => a.price - b.price);
-      dispatch(setProducts(sortedProducts));
+      dispatch(setProducts(res.data.products));
     } catch (error) {
       console.error("Error fetching products", error);
     }
@@ -26,9 +25,29 @@ const Product = () => {
     fetchProducts();
   }, [dispatch]);
 
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const sortProducts = (products) => {
+    let sorted = [...products];
+    switch (sortOption) {
+      case "price-asc":
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case "price-desc":
+        sorted.sort((a, b) => b.price - a.price);
+        break;
+      case "rating-desc":
+        sorted.sort((a, b) => b.rating - a.rating);
+        break;
+      default:
+        break;
+    }
+    return sorted;
+  };
+
+  const sortedProducts = sortProducts(products);
+
+  const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
   const startIdx = (currentPage - 1) * itemsPerPage;
-  const currentProducts = products.slice(startIdx, startIdx + itemsPerPage);
+  const currentProducts = sortedProducts.slice(startIdx, startIdx + itemsPerPage);
 
   const goToPage = (page) => {
     if (page >= 1 && page <= totalPages) {
@@ -187,13 +206,27 @@ const Product = () => {
                 </div>
               </div>
             </div>
+
             <div className="col-md-9">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h3>Casual</h3>
-                <small className="text-muted">
-                  Showing {startIdx + 1}–{Math.min(startIdx + itemsPerPage, products.length)} of {products.length} products
-                </small>
+                <div className="d-flex align-items-center gap-3">
+                  <small className="text-muted">
+                    Showing {startIdx + 1}–{Math.min(startIdx + itemsPerPage, products.length)} of {products.length} products
+                  </small>
+                  <select
+                    className="form-select"
+                    style={{ width: 200 }}
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                  >
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating-desc">Rating: High to Low</option>
+                  </select>
+                </div>
               </div>
+
               <div className="row">
                 {currentProducts.map((item) => (
                   <div className="col-md-4 mb-4" key={item.id}>
@@ -224,11 +257,10 @@ const Product = () => {
                   </div>
                 ))}
               </div>
+
               <nav className="mt-4">
                 <ul className="pagination justify-content-center w-100 px-3">
-                  <li
-                    className={`page-item me-2 ${currentPage === 1 ? "disabled" : ""}`}
-                  >
+                  <li className={`page-item me-2 ${currentPage === 1 ? "disabled" : ""}`}>
                     <button
                       className="page-link px-4 py-2"
                       onClick={() => goToPage(currentPage - 1)}
@@ -240,7 +272,9 @@ const Product = () => {
                   {getPageNumbers(currentPage, totalPages).map((page, index) => (
                     <li
                       key={index}
-                      className={`page-item me-2 ${page === currentPage ? "active" : page === "..." ? "disabled" : ""}`}
+                      className={`page-item me-2 ${
+                        page === currentPage ? "active" : page === "..." ? "disabled" : ""
+                      }`}
                     >
                       {page === "..." ? (
                         <span className="page-link px-4 py-2">…</span>
@@ -256,7 +290,9 @@ const Product = () => {
                   ))}
 
                   <li
-                    className={`page-item me-2 ${currentPage === totalPages ? "disabled" : ""}`}
+                    className={`page-item me-2 ${
+                      currentPage === totalPages ? "disabled" : ""
+                    }`}
                   >
                     <button
                       className="page-link px-4 py-2"

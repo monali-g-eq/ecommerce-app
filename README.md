@@ -16,7 +16,9 @@ A simple and responsive e-commerce web application featuring user login, product
   - Title
   - Price
   - Ratings
-  - Filters
+  - Filters BY :-
+       - Price(High to Low, Low to High)
+       - Rating
 
 # Product Detail Page
 - Detailed view of a selected product including:
@@ -37,6 +39,7 @@ A simple and responsive e-commerce web application featuring user login, product
 
 # Shopping Cart
 - Shows all items added by the user.
+- On item click → navigate to Product Details Page
 - Allows increasing or decreasing the quantity of each item.
 - Automatically updates the price based on quantity.
 - Remove items from the cart.
@@ -46,7 +49,7 @@ A simple and responsive e-commerce web application featuring user login, product
   - Quantity controls
   - total price
   - "Checkout" button
-  - "Discount"
+  - Discount
 
 # Tech Stack
 

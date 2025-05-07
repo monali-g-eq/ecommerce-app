@@ -177,45 +177,39 @@ const ProductDetail = () => {
           <div className="col-md-6">
             <div className="row">
               <div className="col-md-2 d-flex flex-column gap-2 product-image">
-                {product.images?.map((img, idx) => (
-                  <img
-                    key={idx}
-                    src={img}
-                    className="img-fluid rounded"
-                    alt={`Thumbnail ${idx + 1}`}
-                    style={{
-                      height: "100px",
-                      width: "670px",
-                      objectFit: "cover",
-                    }}
-                  />
-                ))}
-                {product.images?.map((img, idx) => (
-                  <img
-                    key={`second-${idx}`}
-                    src={img}
-                    className="img-fluid rounded"
-                    alt={`Thumbnail ${idx + 1}`}
-                    style={{
-                      height: "100px",
-                      width: "670px",
-                      objectFit: "cover",
-                    }}
-                  />
-                ))}
-                {product.images?.map((img, idx) => (
-                  <img
-                    key={`third-${idx}`}
-                    src={img}
-                    className="img-fluid rounded"
-                    alt={`Thumbnail ${idx + 1}`}
-                    style={{
-                      height: "100px",
-                      width: "670px",
-                      objectFit: "cover",
-                    }}
-                  />
-                ))}
+                <div className="thumbnails">
+                  {product.images && product.images[0] && (
+                    <img
+                      key={0}
+                      src={product.images[0]}
+                      className="img-fluid rounded thumbnail-img"
+                      alt="Thumbnail 1"
+                    />
+                  )}
+                  {product.images && product.images[0] && (
+                    <img
+                      key={0}
+                      src={product.images[0]}
+                      className="img-fluid rounded thumbnail-img"
+                      alt="Thumbnail 2"
+                    />
+                  )}
+                  {product.images && product.images[0] && (
+                    <img
+                      key={0}
+                      src={product.images[0]}
+                      className="img-fluid rounded thumbnail-img"
+                      alt="Thumbnail 3"
+                    />
+                  )}
+                  {product.images && product.images.length === 0 && (
+                    <img
+                      src="/path/to/default-image.jpg"
+                      className="img-fluid rounded thumbnail-img"
+                      alt="Default Thumbnail"
+                    />
+                  )}
+                </div>
               </div>
               <div className="col-md-10">
                 <img
@@ -224,7 +218,7 @@ const ProductDetail = () => {
                   alt={product.title}
                   style={{
                     height: "320px",
-                    width: "80%", 
+                    width: "80%",
                     objectFit: "cover",
                   }}
                 />

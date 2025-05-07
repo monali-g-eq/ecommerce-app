@@ -5,6 +5,7 @@ import {
   increaseQuantity,
   decreaseQuantity,
 } from "../redux/productSlice";
+import { Link } from "react-router-dom"; 
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.products.cart);
@@ -66,17 +67,19 @@ const Cart = () => {
                 >
                   <div className="d-flex align-items-center w-100">
                     <div className="me-3">
-                      <img
-                        src={item.thumbnail || item.image}
-                        alt={item.title || item.name}
-                        className="img-fluid rounded"
-                        style={{
-                          width: "100%",
-                          maxWidth: "80px", 
-                          height: "auto",   
-                          objectFit: "cover", 
-                        }}
-                      />
+                      <Link to={`/product/${item.id}`}>
+                        <img
+                          src={item.thumbnail || item.image}
+                          alt={item.title || item.name}
+                          className="img-fluid rounded"
+                          style={{
+                            width: "100%",
+                            maxWidth: "80px",
+                            height: "auto",
+                            objectFit: "cover",
+                          }}
+                        />
+                      </Link>
                     </div>
                     <div className="w-100">
                       <h5 className="mb-1">{item.title || item.name}</h5>
@@ -131,7 +134,7 @@ const Cart = () => {
             )}
           </div>
 
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-4  pt-4 pt-md-0">
             <div className="border rounded p-4 bg-white">
               <h5 className="fw-bold mb-3">Order Summary</h5>
               <div className="d-flex justify-content-between mb-2">
@@ -163,7 +166,7 @@ const Cart = () => {
 
               <button
                 className="btn btn-dark w-100 d-flex justify-content-center items-center py-2"
-                style={{ borderRadius: "15px" }} 
+                style={{ borderRadius: "15px" }}
               >
                 <span className="mr-2">Go to Checkout</span>
                 <span>→</span>
