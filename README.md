@@ -6,8 +6,9 @@ A simple and responsive e-commerce web application featuring user login, product
 
 # Login Page
 - Basic login functionality.
-- Email and password fields.
+- UseName and password fields.
 - User authentication (mocked api).
+- Validation for empty fields or invalid credentials.
 
 # Product List Page
 - Displays a list of available products.
@@ -38,6 +39,7 @@ A simple and responsive e-commerce web application featuring user login, product
   - suggestion related you might also like
 
 # Shopping Cart
+- Displays the how much products added to the cart.
 - Shows all items added by the user.
 - On item click → navigate to Product Details Page
 - Allows increasing or decreasing the quantity of each item.
@@ -50,6 +52,12 @@ A simple and responsive e-commerce web application featuring user login, product
   - total price
   - "Checkout" button
   - Discount
+
+# payment page 
+- Payment gateway integration (cash on delivery, upi, Paytm, Gpay).
+- User can select payment method.
+- User can confirm payment.
+- order success message.
 
 # Tech Stack
 
