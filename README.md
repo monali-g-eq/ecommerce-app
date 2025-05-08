@@ -63,7 +63,4 @@ A simple and responsive e-commerce web application featuring user login, product
 - we can run the project by "npm run dev".
 
 
-# Incomplete Features
-*Responsive Design
-The app is currently not fully responsive. 
 
