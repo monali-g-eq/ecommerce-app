@@ -1,15 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  removeCartProduct,
-  increaseQuantity,
-  decreaseQuantity,
-} from "../redux/productSlice";
-import { Link } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; 
+import { removeCartProduct, increaseQuantity, decreaseQuantity } from "../redux/productSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.products.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate(); 
 
   const formatCurrency = (value) =>
     new Intl.NumberFormat("en-US", {
@@ -23,10 +21,14 @@ const Cart = () => {
     return sum + price * quantity;
   }, 0);
 
-  const discountRate = 0.2; 
+  const discountRate = 0.2;
   const discount = subtotal * discountRate;
   const delivery = 15;
   const total = subtotal - discount + delivery;
+
+  const handleGoToCheckout = () => {
+    navigate("/payment"); 
+  };
 
   return (
     <div className="cart-section py-4">
@@ -47,10 +49,7 @@ const Cart = () => {
         <h2 className="fw-bold mb-4">YOUR CART</h2>
 
         <div className="row">
-          <div
-            className="col-12 col-md-8"
-            style={{ border: "1px solid #ddd", padding: "15px" }}
-          >
+          <div className="col-12 col-md-8" style={{ border: "1px solid #ddd", padding: "15px" }}>
             {cartItems.length === 0 ? (
               <p>Your cart is empty.</p>
             ) : (
@@ -59,10 +58,7 @@ const Cart = () => {
                   key={item.id}
                   className="d-flex flex-column flex-sm-row justify-content-between align-items-center bg-white rounded p-3 mb-3 position-relative"
                   style={{
-                    borderBottom:
-                      index === cartItems.length - 1
-                        ? "none"
-                        : "1px solid #ddd",
+                    borderBottom: index === cartItems.length - 1 ? "none" : "1px solid #ddd",
                   }}
                 >
                   <div className="d-flex align-items-center w-100">
@@ -83,15 +79,9 @@ const Cart = () => {
                     </div>
                     <div className="w-100">
                       <h5 className="mb-1">{item.title || item.name}</h5>
-                      <p className="mb-0 text-muted">
-                        Size: {item.size || "Large"}
-                      </p>
-                      <p className="mb-0 text-muted">
-                        Color: {item.color || "Default"}
-                      </p>
-                      <h5 className="mt-2 text-dark fw-bold">
-                        ${parseFloat(item.price).toFixed(2) || "0.00"}
-                      </h5>
+                      <p className="mb-0 text-muted">Size: {item.size || "Large"}</p>
+                      <p className="mb-0 text-muted">Color: {item.color || "Default"}</p>
+                      <h5 className="mt-2 text-dark fw-bold">${parseFloat(item.price).toFixed(2) || "0.00"}</h5>
                     </div>
                   </div>
 
@@ -134,7 +124,7 @@ const Cart = () => {
             )}
           </div>
 
-          <div className="col-12 col-md-4  pt-4 pt-md-0">
+          <div className="col-12 col-md-4 pt-4 pt-md-0">
             <div className="border rounded p-4 bg-white">
               <h5 className="fw-bold mb-3">Order Summary</h5>
               <div className="d-flex justify-content-between mb-2">
@@ -156,17 +146,14 @@ const Cart = () => {
               </div>
 
               <div className="input-group mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Add promo code"
-                />
+                <input type="text" className="form-control" placeholder="Add promo code" />
                 <button className="btn btn-dark">Apply</button>
               </div>
 
               <button
                 className="btn btn-dark w-100 d-flex justify-content-center items-center py-2"
                 style={{ borderRadius: "15px" }}
+                onClick={handleGoToCheckout} 
               >
                 <span className="mr-2">Go to Checkout</span>
                 <span>→</span>

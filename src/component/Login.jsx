@@ -2,27 +2,35 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const validUser = {
-      email: "emilys@gmail.com",
-      password: "emilypass",
-    };
-    if (email === validUser.email && password === validUser.password) {
-      const loggedInUser = { email };
-      dispatch(setUser(loggedInUser));
-      localStorage.setItem("user", JSON.stringify(loggedInUser)); 
+    setError("");
+    setLoading(true);
+    try {
+      const response = await axios.post("https://dummyjson.com/auth/login", {
+        username: username,
+        password: password,
+      });
+
+      const userData = response.data;
+      dispatch(setUser(userData));
+      localStorage.setItem("user", JSON.stringify(userData));
       navigate("/");
-    } else {
-      setError("Invalid credentials");
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("Invalid credentials. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,7 +81,7 @@ const Login = () => {
           display: block;
           font-size: 14px;
         }
-        input[type="email"],
+        input[type="username"],
         input[type="password"] {
           padding: 12px 14px;
           font-size: 16px;
@@ -82,7 +90,7 @@ const Login = () => {
           transition: border-color 0.3s ease;
           width: 100%;
         }
-        input[type="email"]:focus,
+        input[type="username"]:focus,
         input[type="password"]:focus {
           outline: none;
           border-color: #6c63ff;
@@ -141,6 +149,11 @@ const Login = () => {
           background-color: #5048e5;
           box-shadow: 0 6px 16px #5048e5cc;
         }
+        button[disabled] {
+          background-color: #ccc;
+          cursor: not-allowed;
+          box-shadow: none;
+        }
         @media (max-width: 420px) {
           .login-card {
             padding: 24px 20px;
@@ -160,17 +173,17 @@ const Login = () => {
       `}</style>
       <div className="login-card" role="main" aria-label="Login form">
         <h2 className="login-title">Welcome Back, Fashionista! 👗</h2>
-        <form onSubmit={handleLogin} noValidate>
+        <form onSubmit={handleLogin} noValidate aria-busy={loading}>
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username">username</label>
             <input
-              id="email"
-              type="email"
+              id="username"
+              type="username"
               placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setusername(e.target.value)}
               required
-              autoComplete="email"
+              autoComplete="username"
             />
           </div>
           <div>
@@ -185,16 +198,27 @@ const Login = () => {
               autoComplete="current-password"
             />
           </div>
-          {error && <div className="error-message" role="alert">{error}</div>}
+          {error && (
+            <div className="error-message" role="alert" aria-live="assertive">
+              {error}
+            </div>
+          )}
           <div className="form-options">
             <label htmlFor="remember">
               <input type="checkbox" id="remember" />
               Remember me
             </label>
-            <a className="forgot-link" href="/forgot-password" tabIndex={0}>Forgot?</a>
+            <a className="forgot-link" href="/forgot-password" tabIndex={0}>
+              Forgot?
+            </a>
           </div>
-          <button type="submit" className="login-button" aria-label="Login to your account">
-            Login
+          <button
+            type="submit"
+            className="login-button"
+            aria-label="Login to your account"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
       </div>

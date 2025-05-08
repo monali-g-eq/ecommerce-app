@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  FaSearch,
-  FaShoppingCart,
-  FaUser,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaUser, FaBars, FaTimes } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [showBanner, setShowBanner] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const cartItems = useSelector((state) => state.products.cart);
+  const cartItemCount = cartItems.reduce((total, item) => total + (parseInt(item.quantity) || 1), 0);
 
   return (
     <header className="border-bottom">
       {showBanner && (
         <div className="bg-black text-white text-center px-3 py-2 position-relative">
           <p className="mb-0" style={{ fontSize: "14px" }}>
-            Sign up and get 20% off to your first order.{" "}
+            Sign up and get 20% off your first order.{" "}
             <Link to="/signup" className="text-white text-decoration-underline">
               Sign Up Now
             </Link>
@@ -64,14 +62,23 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="d-flex align-items-center gap-3">
+        <div className="d-flex align-items-center gap-3 position-relative">
           <button className="btn d-lg-none p-0">
             <FaSearch size={18} />
           </button>
 
-          <Link to="/cart" className="text-dark">
+          <Link to="/cart" className="text-dark position-relative">
             <FaShoppingCart size={18} />
+            {cartItemCount > 0 && (
+              <span
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style={{ fontSize: "10px", padding: "4px 6px" }}
+              >
+                {cartItemCount}
+              </span>
+            )}
           </Link>
+
           <Link to="/login" className="text-dark">
             <FaUser size={18} />
           </Link>
