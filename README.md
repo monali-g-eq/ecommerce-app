@@ -2,7 +2,7 @@
 
 A simple and responsive e-commerce web application featuring user login, product listing with filters and sorting, detailed product view, and a shopping cart.
 
-# Features
+# Features:-
 
 # Login Page
 - Basic login functionality.
